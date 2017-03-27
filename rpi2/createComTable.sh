@@ -101,10 +101,13 @@ function create_content
 	 cat build.log | grep built-in.o | awk '{print "linux/"$2 }' | xargs du -hs | awk '{print "|" $1 "|" $2 "|"}' >> $1
 	
 }
-
-
-
-WANNABUILD="no"
+function kernel_version
+{
+	cd linux
+	echo "This report was analysis for linux kernel version" >> $1
+	git log >> $1
+	cd ..	
+}
 
 # main
 
@@ -115,6 +118,8 @@ if [ $# -ne 1 ]; then
 		exit 1
 fi
 	
+# clean parameter 1
+echo "" > $1
 
 # clone cross compile tool
 #install_Tools
@@ -122,7 +127,8 @@ fi
 #clone and build kernel
 clone_Kernel
 #clean_Kernel
-cloc_Kernel $1
+#cloc_Kernel $1
+kernel_version $1
 #build_Kernel
 
 
