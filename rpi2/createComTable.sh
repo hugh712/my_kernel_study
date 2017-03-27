@@ -1,13 +1,13 @@
 #!/bin/bash
 
-
 set -e
 
+##################
 # funciton define
+##################
 
 function install_Tools
-{
-	
+{	
 	set +e
 	if [ -d /usr/local ]; then
 		ToolPath="/usr/local/tools"
@@ -60,7 +60,10 @@ function install_Tools
 
 function clone_Kernel
 {
-	git clone --depth=1 https://github.com/raspberrypi/linux
+	if [ ! -d linux ]; then
+		git clone --depth=1 https://github.com/raspberrypi/linux
+	fi
+	
 }
 
 
@@ -69,19 +72,20 @@ function build_Kernel
 	cd linux
 	KERNEL=kernel7
 	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
-	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- vmlinux | tee build.log
+	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- vmlinux | tee ../build.log
+	cd ..
 }
 
 function clean_Kernel
 {
 	cd linux 
 	make clean
+	cd ..
 }
 
-funciton cloc_KErnel
+function cloc_Kernel
 {
-
-
+	echo "test"
 }
 
 
@@ -117,10 +121,9 @@ fi
 
 #clone and build kernel
 clone_Kernel
-clean_Kernel
+#clean_Kernel
 cloc_Kernel $1
-build_Kernel
-
+#build_Kernel
 
 
 #assume we have build.log here
