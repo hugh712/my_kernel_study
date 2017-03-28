@@ -106,7 +106,7 @@ function create_content
 function kernel_version
 {
 	cd linux
-	echo "This report was analysis for linux kernel version" >> ../$1
+	echo "This report was analysed for linux kernel version" >> ../$1
 	echo "" >>../$1
 	echo "" >>../$1
 	git log >> ../$1
