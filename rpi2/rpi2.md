@@ -1,6 +1,40 @@
+
+This report was analysis for linux kernel version
+
+
+commit cd6413a82a66de6ecce828ce67df4f6e3290ea86
+Author: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Date:   Wed Mar 22 12:44:07 2017 +0100
+
+    Linux 4.9.17
+
+
 | Size | component name |
 |---|---|
-|1.2G|.|
+|8.0K|linux/arch/arm/kernel/head.o|
+|20K|linux/init/init_task.o|
+|76K|linux/init/built-in.o|
+|4.0K|linux/usr/built-in.o|
+|248K|linux/arch/arm/kernel/built-in.o|
+|120K|linux/arch/arm/mm/built-in.o|
+|4.0K|linux/arch/arm/common/built-in.o|
+|4.0K|linux/arch/arm/mach-bcm/built-in.o|
+|2.7M|linux/kernel/built-in.o|
+|1.1M|linux/mm/built-in.o|
+|3.9M|linux/fs/built-in.o|
+|84K|linux/ipc/built-in.o|
+|104K|linux/security/built-in.o|
+|224K|linux/crypto/built-in.o|
+|572K|linux/block/built-in.o|
+|428K|linux/lib/built-in.o|
+|4.7M|linux/drivers/built-in.o|
+|16K|linux/sound/built-in.o|
+|4.0K|linux/firmware/built-in.o|
+|2.7M|linux/net/built-in.o|
+
+
+
+
 | Size | component name |
 |---|---|
 |76K|linux/init/built-in.o|

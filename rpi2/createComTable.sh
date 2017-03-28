@@ -91,6 +91,8 @@ function cloc_Kernel
 
 function create_header
 {
+	echo "" >>$1
+	echo "" >>$1
 	echo "| Size | component name |" >> $1
 	echo "|---|---|" >> $1
 }
@@ -104,9 +106,18 @@ function create_content
 function kernel_version
 {
 	cd linux
-	echo "This report was analysis for linux kernel version" >> $1
-	git log >> $1
+	echo "This report was analysis for linux kernel version" >> ../$1
+	echo "" >>../$1
+	echo "" >>../$1
+	git log >> ../$1
 	cd ..	
+}
+
+function special_content
+{
+	cat special_list | xargs du -sh | awk '{print "|" $1 "|" $2 "|"}' >>$1
+	echo "">>$1
+	echo "">>$1
 }
 
 # main
@@ -133,6 +144,11 @@ kernel_version $1
 
 
 #assume we have build.log here
+
+
+# get special_content
+create_header $1
+special_content $1
 
 # create table
 create_header $1
