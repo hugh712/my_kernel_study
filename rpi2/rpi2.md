@@ -1,5 +1,5 @@
 
-This report was analysis for linux kernel version
+This report was analysed for linux kernel version
 
 
 commit cd6413a82a66de6ecce828ce67df4f6e3290ea86
